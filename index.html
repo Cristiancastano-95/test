@@ -1,36 +1,81 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-	<meta charset="UTF-8">
-	<title>Firma</title>
-	<style>
-		@font-face {
-     				 font-family: "TerpelSans-bold";
-      				 src: url("https://raw.githubusercontent.com/Cristiancastano-95/test/master/TerpelSans-Black.ttf");
-    				}
-    	@font-face {
-     				 font-family: "TerpelSans-regular";
-      				 src: url("https://raw.githubusercontent.com/Cristiancastano-95/test/master/TerpelSans-Regular.ttf");
-    				}
-	</style>
+<meta name="viewport" content="width = 1050, user-scalable = no" />
+<script type="text/javascript" src="../../extras/jquery.min.1.7.js"></script>
+<script type="text/javascript" src="../../extras/modernizr.2.5.3.min.js"></script>
 </head>
-<body style="font-family: TerpelSans-regular;, serif; color: #666666;">
+<body>
 
-	<img src="https://raw.githubusercontent.com/Cristiancastano-95/test/master/sing.png" alt="">
-	<br>
-	<span style="font-family:TerpelSans-bold;color: #ff1e0a; font-size: 12px;" >María Mercedes Carrasquilla</span><br>
-	<span style="font-size: 10px;">Vicepresidente de Gestión Humana y Administrativa</span><br>
-	<br>
-	<span style="font-size: 9px;">Organización Terpel</span><br>
-	<span style="font-size: 9px;">+57 (1) 26-7878 Ext.1101</span><br>
-	<span style="font-size: 9px;">Edificio Terpel Cra. 7 #75-51 Piso 8</span>
-	<br>
-	<span style="font-size: 9px;">Bogotá, Colombia</span><br>
-	<span style="font-size: 9px;">www.terpel.com</span><br>
-	<br>
-	<span style="font-size: 8px;">Terpel es una empresa ambientalmente responsable. Evalúe antes de imprimir este correo.</span><br><br>
-	<span style="font-size: 8px;">Esta información es privada y confidencial y está dirigida únicamente a su destinatario. Si usted no es el destinatario original de este mensaje y por este medio pudo acceder a dicha información por favor elimine el mensaje y notifique el envío erróneo al remitente. La distribución o copia de este mensaje está estrictamente prohibida. Tenga en cuenta que los puntos de vista u opiniones presentadas en este mensaje son exclusivamente las del autor y no representan necesariamente las de la ORGANIZACIÓN TERPEL S.A. La transmisión de e-mails no garantiza que el correo electrónico sea seguro.Por consiguiente, el destinatario debe comprobar en este mensaje y cualquier archivo adjunto la presencia de virus. La ORGANIZACIÓN TERPEL S.A no asume ninguna responsabilidad por cualquier daño causado por cualquier virus transmitido junto con este mensaje.</span>
+<div class="flipbook-viewport">
+	<div class="container">
+		<div class="flipbook">
+			<div class="page" style="background-image:url(pages/1.png)"></div>
+			<div class="double" style="background-image:url(pages/2.png)"></div>
+			<div class="double" style="background-image:url(pages/3.png)"></div>
+			<div class="double" style="background-image:url(pages/4.png)"></div>
+			<div class="double" style="background-image:url(pages/5.png)"></div>
+			<div class="page" style="background-image:url(pages/6.png)"></div>
+			<div class="page" style="background-image:url(pages/7.png)"></div>
+			<div class="double" style="background-image:url(pages/8.png)"></div>
+			<div class="double" style="background-image:url(pages/9.png)"></div>
+			<div class="double" style="background-image:url(pages/10.png)"></div>
+			<div class="double" style="background-image:url(pages/12.png)"></div>
+			<div class="double" style="background-image:url(pages/13.png)"></div>
+			<div class="page" style="background-image:url(pages/14.png)"></div>
+		</div>
+	</div>
+</div>
 
+
+<script type="text/javascript">
+
+function loadApp() {
+
+	var flipbook = $('.flipbook');
+
+ 	// Check if the CSS was already loaded
 	
+	if (flipbook.width()==0 || flipbook.height()==0) {
+		setTimeout(loadApp, 10);
+		return;
+	}
+
+	$('.flipbook .double').scissor();
+
+	// Create the flipbook
+
+	$('.flipbook').turn({
+			// Elevation
+
+			elevation: 50,
+			
+			// Enable gradients
+
+			gradients: true,
+			
+			// Auto center this flipbook
+
+			autoCenter: true
+
+	});
+}
+
+// Load the HTML4 version if there's not CSS transform
+
+yepnope({
+	test : Modernizr.csstransforms,
+	yep: ['../../lib/turn.min.js'],
+	nope: ['../../lib/turn.html4.min.js'],
+	both: ['../../lib/scissor.min.js', 'css/double-page.css'],
+	complete: loadApp
+});
+
+</script>
+
 </body>
 </html>
